@@ -1,0 +1,525 @@
+    
+
+
+    :root {
+            --ColorPrimaryDk: #193957;
+            --ColorPrimaryLt: #D79786;
+        }
+
+        .container {
+            max-width: 200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            /*border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);*/
+        }
+        .range-slider {
+            --range-slider-common-height: 16px;
+            --range-slider-handle-width: 24px;
+            --range-slider-handle-height: 24px;
+
+               position: relative;
+			    display: flex;
+			    align-items: start;
+			    width: 100%;
+			    height: 100%;
+			    margin-bottom: 30px;
+			    margin-left: -21px;
+        }
+
+        .range-slider > div {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 13px;
+            right: 15px;
+            height: var(--range-slider-common-height);
+
+        }
+
+        .range-slider > div > .range-slider-val-left, 
+        .range-slider > div > .range-slider-val-right, 
+        .range-slider > div > .range-slider-val-range {
+            height: 3px;
+        }
+
+        .range-slider > div > .range-slider-val-left {
+            position: absolute;
+            left: 0;
+            border-radius: 10px;
+            background-color: #ccc;
+            margin: 0 7px;
+        }
+
+        .range-slider > div > .range-slider-val-right {
+            position: absolute;
+            right: 0;
+            margin: 0 7px;
+            border-radius: 10px;
+            background-color: #ccc;
+            top: -1px;
+        }
+
+        .range-slider > div > .range-slider-val-range {
+            position: absolute;
+            left: 0;
+            top: 1px;
+            height: 5px;
+            border-radius: 14px;
+            background-color: var(--ColorPrimaryLt);
+        }
+
+        .range-slider > div > .range-slider-handle {
+            z-index: 1;
+            position: absolute;
+            top: -10px;
+            margin-left: -11px;
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border-radius: 25%;
+            background-color: #fff;
+            text-align: left;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            outline: none;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .range-slider > div > .range-slider-handle:hover {
+            transform: scale(1.1);
+        }
+
+        div.range-slider > input[type="range"]::-ms-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+            pointer-events: all;
+        }
+
+        div.range-slider > input[type="range"]::-moz-range-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+            pointer-events: all;
+        }
+
+        div.range-slider > input[type="range"]::-webkit-slider-thumb {
+            width: var(--range-slider-handle-width);
+            height: var(--range-slider-handle-height);
+            border: 0 none;
+            border-radius: 0px;
+            background: red;
+            pointer-events: all;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider > input[type="range"]::-ms-fill-lower {
+            background: transparent;
+            border: 0 none;
+        }
+
+        div.range-slider > input[type="range"]::-ms-fill-upper {
+            background: transparent;
+            border: 0 none;
+        }
+
+        .range-slider > input[type="range"] {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: var(--range-slider-common-height);
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider > input[type="range"]::-ms-track {
+            background: transparent;
+            color: transparent;
+            -webkit-appearance: none;
+        }
+
+        div.range-slider > input[type="range"]::-moz-range-track {
+            background: transparent;
+            color: transparent;
+            -moz-appearance: none;
+        }
+
+        div.range-slider > input[type="range"]:focus::-webkit-slider-runnable-track {
+            background: transparent;
+            border: transparent;
+        }
+
+        div.range-slider > input[type="range"]:focus {
+            outline: none;
+        }
+
+        div.range-slider > input[type="range"]::-ms-tooltip {
+            display: none;
+        }
+
+        .range-slider > div > .range-slider-tooltip {
+            z-index: 2;
+            position: absolute;
+            top: -42px;
+            margin-left: -12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 28px;
+            background-color: var(--ColorPrimaryLt);
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: none;
+        }
+
+        .range-slider > div > .range-slider-tooltip:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 19px;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top-width: 16px;
+            border-top-style: solid;
+            border-top-color: var(--ColorPrimaryLt);
+            border-radius: 16px;
+        }
+
+        .range-slider > div > .range-slider-tooltip > span {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 28px;
+        }
+
+        .range-slider:hover > div > .range-slider-tooltip {
+            opacity: 1;
+        }
+
+        /* Number input styling */
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: var(--ColorPrimaryDk);
+            font-size: 14px;
+        }
+
+        .input-group input[type="number"] {
+               width: 62px;
+			    padding: 8px 7px;
+			    border: 2px solid #ddd;
+			    text-align: center;
+			    transition: border-color 0.2s ease;
+			}
+        
+
+        .input-group input[type="number"]:focus {
+            outline: none;
+            border-color: var(--ColorPrimaryLt);
+            box-shadow: 0 0 0 3px rgba(49, 104, 155, 0.1);
+        }
+
+        .value-display {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--ColorPrimaryLt);
+        }
+
+        .value-display h3 {
+            margin: 0 0 8px 0;
+            color: var(--ColorPrimaryDk);
+        }
+
+        .range-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ColorPrimaryLt);
+        }
+
+
+
+
+/* ========= Price Range Slider Styles ============ */
+
+
+        .range-container {
+            position: relative;
+        }
+
+        .range-slider {
+            position: relative;
+            width: 80%;
+            height: 1px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin: 27px 0;
+        }
+
+        .range-track {
+            position: absolute !important;
+            height: 4px !important;
+            background: #d79786;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .range-input {
+            position: absolute;
+            width: 80%;
+            height: 6px;
+            top: -3px;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .range-input::-webkit-slider-thumb {
+            height: 24px;
+            width: 24px;
+            border-radius: 20%;
+            background: white;
+            border: 3px solid white;
+            cursor: pointer;
+            pointer-events: all;
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+
+        .range-input::-moz-range-thumb {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid white;
+            cursor: pointer;
+            pointer-events: all;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-input-group {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .price-input {
+            width: 74px !important;
+            padding: 12px 6px !important;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .price-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+        }
+
+        .price-separator {
+            font-size: 20px;
+            color: #999;
+            font-weight: bold;
+        }
+
+
+
+/* =========== layout ====================== */
+
+
+.tg_layout {
+  display: flex;
+  gap: 20px; /* Optional spacing between columns */
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.tour-filter-form {
+  width: 320px;
+ /* background-color: #f3f3f3;*/
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tour-body {
+  width: 800px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grid-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px; /* spacing between each <ul> block */
+}
+
+.grid-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-list ul li {
+    list-style: none;
+  display: block;
+  margin-bottom: 10px; /* space between list items */
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+
+
+
+/* =========== Tour Booking Styles ====================== */
+
+.booking-modal {
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+background-color: #fefefe !important;
+margin: 5% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 90%;
+max-width: 500px;
+border-radius: 5px;
+position: relative;
+}
+
+.close-modal {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+position: absolute;
+right: 15px;
+top: 10px;
+}
+
+.close-modal:hover {
+color: black;
+}
+
+#booking-form label {
+display: block;
+margin-top: 10px;
+font-weight: bold;
+}
+
+#booking-form input,
+#booking-form textarea {
+width: 100%;
+padding: 8px;
+margin-top: 5px;
+border: 1px solid #ddd;
+border-radius: 3px;
+box-sizing: border-box;
+}
+
+#booking-form button {
+margin-top: 15px;
+margin-right: 10px;
+padding: 10px 20px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+#booking-form button[type="submit"] {
+background-color: #007cba;
+color: white;
+}
+
+.cancel-btn {
+background-color: #666;
+color: white;
+}
+
+.tour-booking-link {
+text-decoration: none;
+color: #007cba;
+cursor: pointer;
+}
+
+.tour-booking-link:hover {
+text-decoration: underline;
+}
+
+#booking-result {
+margin-top: 15px;
+padding: 10px;
+border-radius: 3px;
+}
+
+.success {
+background-color: #d4edda;
+color: #155724;
+border: 1px solid #c3e6cb;
+}
+
+.error {
+background-color: #f8d7da;
+color: #721c24;
+border: 1px solid #f5c6cb;
+}
